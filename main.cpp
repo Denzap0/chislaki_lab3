@@ -52,6 +52,7 @@ void eulerEmlicit(vector<function<double(vector<double>)>> f, vector<double> A){
         }
         write(oOut, A, i);
     }
+    oOut.close();
 }
 
 void eulerEmplicit2(vector<function<double(vector<double>, double t)>> f, vector<double> A){
@@ -71,8 +72,9 @@ void eulerEmplicit2(vector<function<double(vector<double>, double t)>> f, vector
         for(int k = 0; k < A.size(); k++){
             oOut << A[k] << " ";
         }
-        cout << '\n';
+        oOut << '\n';
     }
+    oOut.close();
 }
 
 
