@@ -71,7 +71,7 @@ void eulerEmplicit2(vector<function<double(vector<double>, double t)>> f, vector
         for(int k = 0; k < A.size(); k++){
             oOut << A[k] << " ";
         }
-        oOut << '\n';
+        cout << '\n';
     }
 }
 
