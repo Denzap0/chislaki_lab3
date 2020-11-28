@@ -26,7 +26,6 @@ double f2(vector<double> a){
 
 void write(ofstream &out, vector<double> A, double delta){
     cout << "Weeks have passed" << delta << "Hares: " << A[0] << "Foxes: " << A[1] << '\n';
-    
 }
 
 double f1us(vector<double> a, double t){
@@ -58,7 +57,9 @@ void eulerEmlicit(vector<function<double(vector<double>)>> f, vector<double> A){
 void eulerEmplicit2(vector<function<double(vector<double>, double t)>> f, vector<double> A){
     
     ofstream oOut;
+    ofstream csvOut;
     oOut.open("res2.txt");
+    csvOut.open("res.csv");
     double t1 = 0, t2 = 1, h = 0.1;
     vector<double> delta (A.size());
     vector<vector<double>> ans(A.size(), vector<double> (A.size()));
@@ -71,11 +72,18 @@ void eulerEmplicit2(vector<function<double(vector<double>, double t)>> f, vector
         }
         for(int k = 0; k < A.size(); k++){
             oOut << A[k] << " ";
+            csvOut << A[k] ;
+            if(k < A.size() - 1){
+                csvOut << ';';
+            }
         }
         oOut << '\n';
+        csvOut << '\n';
     }
     oOut.close();
+    csvOut.close();
 }
+
 
 
 int main(int argc, const char * argv[]) {
